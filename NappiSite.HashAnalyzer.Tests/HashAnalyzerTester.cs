@@ -1,4 +1,9 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Newtonsoft.Json.Linq;
+using System.Collections.Generic;
+using System.Reflection;
+using System.Runtime.Intrinsics.Arm;
+using System.Security.Cryptography;
 
 namespace NappiSite.HashAnalyzer.Tests
 {
@@ -18,7 +23,7 @@ namespace NappiSite.HashAnalyzer.Tests
         [DataRow("5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8", HashType.Sha256)]
         [DataRow("127e6fbfe24a750e72930c220a8e138275656b8e5d8f48a98c3c92df2caba935", HashType.Sha256)]
         [DataRow("eb368a2dfd38b405f014118c7d9747fcc97f4f0ee75c05963cd9da6ee65ef498", HashType.Sha256)]
-        public void AnalyzeHashType_Generates_Correct(string value, HashType expected)
+        public void AnalyzeHashType_GivenHash_DetectsCorrectly(string value, HashType expected)
         {
             // Arrange
 
@@ -27,6 +32,31 @@ namespace NappiSite.HashAnalyzer.Tests
 
             // Assert
             Assert.AreEqual(expected, result);
+        }
+
+        [TestMethod]
+        public void AnalyzeHashType_RandomHashes_AlwaysCorrect()
+        {
+            // Arrange
+            var stringsToHash = new List<string>();
+
+            for(var i=0;i<1000;i++)
+            {
+                stringsToHash.Add($"{i}{System.Guid.NewGuid()}");        
+            }
+
+            // Act
+            foreach(var s in stringsToHash)
+            {
+                var md5 = Hasher.GenerateHash(s,HashType.Md5);
+                var sha1 = Hasher.GenerateHash(s, HashType.Sha1);
+                var sha256 = Hasher.GenerateHash(s, HashType.Sha256);
+                
+                // Assert
+                Assert.AreEqual(HashType.Md5, HashAnalyzer.AnalyzeHashType(md5));
+                Assert.AreEqual(HashType.Sha1, HashAnalyzer.AnalyzeHashType(sha1));
+                Assert.AreEqual(HashType.Sha256, HashAnalyzer.AnalyzeHashType(sha256));
+            }  
         }
     }
 }

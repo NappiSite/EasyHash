@@ -6,26 +6,32 @@ namespace NappiSite.HashAnalyzer
 {
     public static class Hasher
     {
-        public static string ComputeMd5HashString(string value)
+        public static string GenerateHash(string value, HashType hashType)
         {
-            return FormatHash(ComputeMd5Hash(value));
-        }
-        public static string ComputeSha1HashString(string value)
-        {
-            return FormatHash(ComputeSha1Hash(value));
-        }
+            byte[] result;
 
-        public static string ComputeSha256HashString(string value)
-        {
-            return FormatHash(ComputeSha256Hash(value));
-        }
+            switch (hashType)
+            {
+                case HashType.Md5:
+                    result = ComputeMd5Hash(value);
+                    break;
+                case HashType.Sha1:
+                    result = ComputeSha1Hash(value);
+                    break;
+                case HashType.Sha256:
+                    result = ComputeSha256Hash(value);
+                    break;
+                default:
+                    throw new ArgumentException("Unknown hashtype");
+            }
 
-        public static string FormatHash(byte[] output)
+            return FormatHash(result);
+        }
+        private static string FormatHash(byte[] output)
         {
             return BitConverter.ToString(output).Replace("-", string.Empty).ToLowerInvariant();
         }
-
-        public static byte[] ComputeMd5Hash(string value)
+        private static byte[] ComputeMd5Hash(string value)
         {
             var fpBytes = Encoding.ASCII.GetBytes(value);
 
@@ -36,7 +42,6 @@ namespace NappiSite.HashAnalyzer
                 return fpHash;
             }
         }
-
         private static byte[] ComputeSha1Hash(string email)
         {
             var input = Encoding.ASCII.GetBytes(email);
@@ -48,7 +53,6 @@ namespace NappiSite.HashAnalyzer
                 return output;
             }
         }
-
         private static byte[] ComputeSha256Hash(string email)
         {
             var input = Encoding.ASCII.GetBytes(email);
