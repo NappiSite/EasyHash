@@ -1,1 +1,1 @@
-# HashAnalyzer
+# EasyHash
