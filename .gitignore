@@ -9,3 +9,14 @@
 /NappiSite.HashAnalyzer/bin/Debug/netstandard2.0
 /NappiSite.HashAnalyzer.Tests/bin/Debug
 /NappiSite.HashAnalyzer.Tests/obj
+/NappiSite.HashAnalyzer/bin
+/NappiSite.HashAnalyzer.Tests/bin/Release/net6/cs
+/NappiSite.HashAnalyzer.Tests/bin/Release/net6/de
+/NappiSite.HashAnalyzer.Tests/bin/Release/net6/es
+/NappiSite.HashAnalyzer.Tests/bin/Release/net6/fr
+/NappiSite.HashAnalyzer.Tests/bin/Release/net6/it
+/NappiSite.HashAnalyzer.Tests/bin/Release/net6/ja
+/NappiSite.HashAnalyzer.Tests/bin/Release/net6/ko
+/NappiSite.HashAnalyzer.Tests/bin/Release/net6/pl
+/NappiSite.HashAnalyzer.Tests/bin/Release/net6/pt-BR
+/NappiSite.HashAnalyzer.Tests/bin/Release/net6
