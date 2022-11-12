@@ -1,0 +1,11 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/.vs
+/NappiSite.HashAnalyzer/obj/Debug/netstandard2.0
+/NappiSite.HashAnalyzer/obj
+/NappiSite.HashAnalyzer/.vs
+/NappiSite.HashAnalyzer/bin/Debug/netstandard2.0
+/NappiSite.HashAnalyzer.Tests/bin/Debug
+/NappiSite.HashAnalyzer.Tests/obj
