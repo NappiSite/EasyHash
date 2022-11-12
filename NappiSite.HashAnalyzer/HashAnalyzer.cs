@@ -2,7 +2,7 @@
 
 namespace NappiSite.HashAnalyzer
 {
-    public class Analyzer
+    public class HashAnalyzer
     {
         public static HashType AnalyzeHashType(string value)
         {

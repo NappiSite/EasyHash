@@ -3,7 +3,7 @@
 namespace NappiSite.HashAnalyzer.Tests
 {
     [TestClass]
-    public class AnalyzerTester
+    public class HashAnalyzerTester
     {
         [DataTestMethod]
         [DataRow("", HashType.Unknown)]
@@ -23,7 +23,7 @@ namespace NappiSite.HashAnalyzer.Tests
             // Arrange
 
             // Act
-            var result = Analyzer.AnalyzeHashType(value);
+            var result = HashAnalyzer.AnalyzeHashType(value);
 
             // Assert
             Assert.AreEqual(expected, result);

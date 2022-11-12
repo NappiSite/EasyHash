@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net6</TargetFramework>
@@ -11,7 +11,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\NappiSite.HashAnalyzer\NappiSite.HashAnalyzer.csproj" />
+    <ProjectReference Include="..\NappiSite.HashAnalyzer\NappiSite.EasyHash.csproj" />
   </ItemGroup>
 
 </Project>
