@@ -1,4 +1,4 @@
-﻿namespace NappiSite.HashAnalyzer
+﻿namespace NappiSite.EasyHash
 {
     public enum HashType
     {

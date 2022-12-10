@@ -2,7 +2,7 @@
 using System.Security.Cryptography;
 using System.Text;
 
-namespace NappiSite.HashAnalyzer
+namespace NappiSite.EasyHash
 {
     public static class Hasher
     {
@@ -21,8 +21,9 @@ namespace NappiSite.HashAnalyzer
                 case HashType.Sha256:
                     result = ComputeSha256Hash(value);
                     break;
+                case HashType.Unknown:
                 default:
-                    throw new ArgumentException("Unknown hashtype");
+                    throw new ArgumentException("Unknown HashType");
             }
 
             return FormatHash(result);
@@ -33,35 +34,33 @@ namespace NappiSite.HashAnalyzer
         }
         private static byte[] ComputeMd5Hash(string value)
         {
-            var fpBytes = Encoding.ASCII.GetBytes(value);
+            var input = GetBytes(value);
 
-            using (var md5 = MD5.Create())
+            using (var algorithm = MD5.Create())
             {
-                var fpHash = md5.ComputeHash(fpBytes);
-
-                return fpHash;
+                return algorithm.ComputeHash(input);
             }
         }
-        private static byte[] ComputeSha1Hash(string email)
+        private static byte[] GetBytes(string value)
         {
-            var input = Encoding.ASCII.GetBytes(email);
+            return Encoding.ASCII.GetBytes(value);
+        }
+        private static byte[] ComputeSha1Hash(string value)
+        {
+            var input = GetBytes(value);
 
-            using (var sha = SHA1.Create())
+            using (var algorithm = SHA1.Create())
             {
-                var output = sha.ComputeHash(input);
-
-                return output;
+                return algorithm.ComputeHash(input);
             }
         }
-        private static byte[] ComputeSha256Hash(string email)
+        private static byte[] ComputeSha256Hash(string value)
         {
-            var input = Encoding.ASCII.GetBytes(email);
+            var input = GetBytes(value);
 
-            using (var sha = SHA256.Create())
+            using (var algorithm = SHA256.Create())
             {
-                var output = sha.ComputeHash(input);
-
-                return output;
+                return algorithm.ComputeHash(input);
             }
         }
     }

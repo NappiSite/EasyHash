@@ -1,6 +1,6 @@
 ﻿using System.Linq;
 
-namespace NappiSite.HashAnalyzer
+namespace NappiSite.EasyHash
 {
     public class HashAnalyzer
     {

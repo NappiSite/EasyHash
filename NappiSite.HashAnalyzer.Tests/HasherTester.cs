@@ -1,7 +1,7 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
+﻿using System;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace NappiSite.HashAnalyzer.Tests
+namespace NappiSite.EasyHash.Tests
 {
     [TestClass]
     public class HasherTester
@@ -29,7 +29,7 @@ namespace NappiSite.HashAnalyzer.Tests
             const string STRING_VALUE = "some random bunch of text";
 
             // Act
-            var result = Assert.ThrowsException<ArgumentException>(() => Hasher.GenerateHash(STRING_VALUE, HashType.Unknown));
+            Assert.ThrowsException<ArgumentException>(() => Hasher.GenerateHash(STRING_VALUE, HashType.Unknown));
 
             // Assert       
         }
@@ -41,7 +41,7 @@ namespace NappiSite.HashAnalyzer.Tests
             const string STRING_VALUE = null;
 
             // Act
-            var result = Assert.ThrowsException<ArgumentNullException>(() => Hasher.GenerateHash(STRING_VALUE, HashType.Md5));
+            Assert.ThrowsException<ArgumentNullException>(() => Hasher.GenerateHash(STRING_VALUE, HashType.Md5));
 
             // Assert       
         }

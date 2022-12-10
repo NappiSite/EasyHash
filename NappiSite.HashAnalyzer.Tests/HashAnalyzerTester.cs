@@ -1,11 +1,7 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Newtonsoft.Json.Linq;
-using System.Collections.Generic;
-using System.Reflection;
-using System.Runtime.Intrinsics.Arm;
-using System.Security.Cryptography;
+﻿using System.Collections.Generic;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace NappiSite.HashAnalyzer.Tests
+namespace NappiSite.EasyHash.Tests
 {
     [TestClass]
     public class HashAnalyzerTester
