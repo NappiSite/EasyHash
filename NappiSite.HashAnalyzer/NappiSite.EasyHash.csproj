@@ -4,7 +4,7 @@
 		<TargetFramework>netstandard2.0</TargetFramework>
 		<PackageId>NappiSite.EasyCache</PackageId>
 		<Title>EasyCache</Title>
-		<Version>1.0.1</Version>
+		<Version>1.0.2</Version>
 		<Authors>Jason Nappi</Authors>
 		<Company>NappiSite</Company>
 		<Description>This client library contains utilities for working with hashes, specifically the ability to determine the hash algorithm used to generate the hash from the hash itself</Description>
