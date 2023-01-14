@@ -24,7 +24,7 @@ namespace NappiSite.EasyHash
             return hashType;
         }
 
-        public static bool IsMd5(string value)
+        private static bool IsMd5(string value)
         {
             return IsHash(value, 32);
         }

@@ -16,6 +16,7 @@
 		<RepositoryUrl>https://github.com/NappiSite/EasyHash</RepositoryUrl>
 		<RepositoryType>git</RepositoryType>
 		<PackageIcon>nappisite.jpg</PackageIcon>
+		<PackageTags>AnalyzeHashType;GenerateHash;MD5;Sha1;Sha256</PackageTags>
 	</PropertyGroup>
 
 	<ItemGroup>
